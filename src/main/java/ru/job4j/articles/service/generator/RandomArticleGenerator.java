@@ -13,7 +13,7 @@ public class RandomArticleGenerator implements ArticleGenerator {
     public Article generate(List<Word> words) {
         var wordsCopy = new ArrayList<>(words);
         Collections.shuffle(wordsCopy);
-        var content = wordsCopy.stream()
+        var content = words.stream()
                 .map(Word::getValue)
                 .collect(Collectors.joining(" "));
         return new Article(content);
